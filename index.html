@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JANNE PHOTOS</title>
+<meta name="description" content="JANNE PHOTOS — ensaios editoriais digitais de Aino Lehtonen. 8 coleções de lingerie e cetim, com subcoleções e pack completo.">
+<meta name="theme-color" content="#0d070c">
+<meta property="og:title" content="JANNE PHOTOS — Coleções editoriais">
+<meta property="og:description" content="Ensaios editoriais digitais de uma musa virtual. 8 coleções, subcoleções e pack completo.">
+<meta property="og:image" content="assets/janne-02.webp">
+<meta name="robots" content="noai, noimageai">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d070c; --bg2:#150b13; --card:#1b0e18; --card2:#231320;
+  --line:rgba(232,190,160,.14); --line2:rgba(232,190,160,.28);
+  --text:#f6ece8; --muted:#b9a2a8; --dim:#86707a;
+  --wine:#8e1840; --rose:#ff4f8b; --rose2:#ff7aa6; --gold:#e3bf93; --gold2:#f3dcbc;
+  --serif:"Cormorant Garamond",Georgia,serif; --sans:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:18px; --wrap:min(1240px,calc(100% - 48px));
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.lock{overflow:hidden}
+img{display:block;max-width:100%;-webkit-user-drag:none;user-select:none}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+.wrap{width:var(--wrap);margin:0 auto}
+.serif{font-family:var(--serif)}
+.eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:600;display:inline-flex;align-items:center;gap:12px}
+.eyebrow:before{content:"";width:28px;height:1px;background:currentColor;opacity:.7}
+h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(2.4rem,5vw,4.2rem);line-height:1.02}
+h2 em,h1 em{font-style:italic;color:var(--gold2);font-weight:400}
+p{margin:0;color:var(--muted)}
+/* grain */
+body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.07;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;border-radius:999px;font-weight:600;font-size:.9rem;letter-spacing:.04em;transition:.3s;white-space:nowrap}
+.btn-primary{background:linear-gradient(120deg,var(--wine),var(--rose));color:#fff;box-shadow:0 10px 40px -10px rgba(255,79,139,.55)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 50px -12px rgba(255,79,139,.75)}
+.btn-ghost{border:1px solid var(--line2);color:var(--text)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold2)}
+.btn[disabled]{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+.arrow{transition:transform .3s}.btn:hover .arrow{transform:translateX(4px)}
+
+/* notice + header */
+.notice{background:linear-gradient(90deg,#3a0c22,#5d1234,#3a0c22);text-align:center;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;padding:9px 16px;color:#ffd9e6}
+.notice b{color:#fff}
+header{position:sticky;top:0;z-index:40;transition:.35s;border-bottom:1px solid transparent}
+header.scrolled{background:rgba(13,7,12,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-color:var(--line)}
+.nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:baseline;gap:10px;font-family:var(--serif);font-size:1.75rem;letter-spacing:.28em;font-weight:500}
+.logo small{font-family:var(--sans);font-size:.62rem;letter-spacing:.42em;color:var(--gold);font-weight:600}
+.menu{display:flex;gap:34px;font-size:.84rem;letter-spacing:.08em}
+.menu a{color:var(--muted);transition:.25s;position:relative}
+.menu a:hover{color:var(--text)}
+.menu a:after{content:"";position:absolute;left:0;right:100%;bottom:-6px;height:1px;background:var(--gold);transition:.3s}
+.menu a:hover:after{right:0}
+.nav .btn{padding:11px 22px;font-size:.8rem}
+.burger{display:none;width:44px;height:44px;border:1px solid var(--line2);border-radius:50%;align-items:center;justify-content:center}
+.burger span,.burger span:before,.burger span:after{display:block;width:16px;height:1.5px;background:var(--text);position:relative;content:""}
+.burger span:before{position:absolute;top:-5px}.burger span:after{position:absolute;top:5px}
+
+/* hero */
+.hero{position:relative;padding:40px 0 90px;overflow:hidden}
+.hero:before{content:"";position:absolute;width:900px;height:900px;right:-200px;top:-260px;background:radial-gradient(circle,rgba(142,24,64,.55),transparent 62%);filter:blur(10px);pointer-events:none}
+.hero:after{content:"";position:absolute;width:600px;height:600px;left:-260px;bottom:-300px;background:radial-gradient(circle,rgba(227,191,147,.12),transparent 65%);pointer-events:none}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.hero h1{font-size:clamp(3.4rem,8vw,7.4rem);line-height:.92;margin:26px 0 28px}
+.hero h1 .line{display:block}
+.hero-lead{font-size:1.08rem;max-width:470px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin:38px 0 46px}
+.stats{display:flex;gap:42px;flex-wrap:wrap;padding-top:30px;border-top:1px solid var(--line)}
+.stats b{display:block;font-family:var(--serif);font-size:2.4rem;font-weight:500;line-height:1;color:var(--text)}
+.stats span{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.hero-visual{position:relative;justify-self:end;width:min(500px,100%)}
+.arch{position:relative;border-radius:260px 260px 22px 22px;overflow:hidden;aspect-ratio:3/4;border:1px solid var(--line2);box-shadow:0 50px 120px -30px rgba(0,0,0,.8),0 0 0 10px rgba(227,191,147,.04)}
+.arch img{width:100%;height:100%;object-fit:cover;transform:scale(1.04);animation:slowzoom 18s ease-in-out infinite alternate}
+@keyframes slowzoom{to{transform:scale(1.12)}}
+.arch:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(13,7,12,.7))}
+.hero-tag{position:absolute;left:-46px;bottom:70px;z-index:2;background:rgba(27,14,24,.86);backdrop-filter:blur(12px);border:1px solid var(--line2);border-radius:16px;padding:16px 20px;display:flex;gap:14px;align-items:center;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.hero-tag img{width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:top}
+.hero-tag small{display:block;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.hero-tag strong{font-family:var(--serif);font-size:1.3rem;font-weight:500}
+.seal{position:absolute;right:-26px;top:40px;width:118px;height:118px;z-index:2;animation:spin 22s linear infinite}
+.seal text{font:600 9.6px var(--sans);letter-spacing:3.2px;fill:var(--gold2);text-transform:uppercase}
+@keyframes spin{to{transform:rotate(360deg)}}
+.seal-dot{position:absolute;right:20px;top:86px;width:26px;height:26px;border-radius:50%;background:var(--rose);box-shadow:0 0 30px var(--rose);z-index:3}
+
+/* marquee */
+.marquee{border-block:1px solid var(--line);overflow:hidden;padding:20px 0;background:var(--bg2)}
+.marquee-track{display:flex;gap:56px;width:max-content;animation:marq 40s linear infinite}
+.marquee span{font-family:var(--serif);font-style:italic;font-size:1.7rem;color:var(--muted);white-space:nowrap;display:flex;align-items:center;gap:56px}
+.marquee span:after{content:"✦";font-style:normal;font-size:.9rem;color:var(--rose)}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* sections */
+section{position:relative}
+.sec{padding:120px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:56px;flex-wrap:wrap}
+.sec-head h2{margin-top:18px}
+.sec-head p{max-width:440px}
+
+/* editorial */
+.editorial-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:110px;gap:18px}
+.ph{position:relative;overflow:hidden;border-radius:var(--r);background:var(--card);cursor:zoom-in;border:1px solid var(--line)}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.7,.2,1),filter .6s}
+.ph:hover img{transform:scale(1.06)}
+.ph .cap{position:absolute;left:16px;bottom:14px;right:16px;z-index:2;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:#fff;opacity:0;transform:translateY(8px);transition:.4s}
+.ph:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(13,7,12,.75));opacity:0;transition:.4s}
+.ph:hover .cap,.ph:hover:after{opacity:1;transform:none}
+.e1{grid-column:1/6;grid-row:span 6}
+.e2{grid-column:6/9;grid-row:span 3}
+.e3{grid-column:9/13;grid-row:span 4}
+.e4{grid-column:6/9;grid-row:span 3}
+.e5{grid-column:9/13;grid-row:span 2;display:flex;flex-direction:column;justify-content:center;padding:26px;cursor:default;background:linear-gradient(135deg,#2a0f20,#1b0e18)}
+.e5:after{display:none}
+.e5 q{font-family:var(--serif);font-style:italic;font-size:1.45rem;line-height:1.25;color:var(--gold2);quotes:none}
+.e5 small{margin-top:10px;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+.editorial-copy{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:60px;padding-top:44px;border-top:1px solid var(--line)}
+.editorial-copy h3{font-size:2rem;line-height:1.1}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.chip{border:1px solid var(--line2);border-radius:999px;padding:8px 16px;font-size:.78rem;color:var(--muted)}
+
+/* packs */
+#packs{background:linear-gradient(180deg,var(--bg) 0%,#12080f 100%)}
+.featured{display:grid;grid-template-columns:.9fr 1.1fr;border-radius:28px;overflow:hidden;border:1px solid var(--line2);background:linear-gradient(135deg,#2b0d1f 0%,#1a0b16 55%,#120810 100%);margin-bottom:28px;position:relative}
+.featured:before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 85% 0%,rgba(255,79,139,.18),transparent 70%);pointer-events:none}
+.featured-media{position:relative;min-height:440px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:6px;padding:6px}
+.featured-media img{width:100%;height:100%;object-fit:cover;border-radius:16px}
+.featured-media img:first-child{grid-row:span 2}
+.featured-body{position:relative;padding:54px 56px;display:flex;flex-direction:column;justify-content:center}
+.badge{align-self:flex-start;display:inline-flex;gap:8px;align-items:center;background:rgba(255,79,139,.14);border:1px solid rgba(255,79,139,.4);color:var(--rose2);padding:7px 14px;border-radius:999px;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.badge i{width:7px;height:7px;border-radius:50%;background:var(--rose);box-shadow:0 0 10px var(--rose)}
+.featured h3{font-size:clamp(2.4rem,4vw,3.4rem);line-height:1;margin:20px 0 14px}
+.price-row{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin:26px 0 8px}
+.price{font-family:var(--serif);font-size:3.4rem;line-height:1;color:var(--text);font-weight:500}
+.price-old{color:var(--dim);text-decoration:line-through;font-size:1.05rem}
+.save{color:var(--gold);font-weight:600;font-size:.86rem}
+.featured ul{list-style:none;padding:0;margin:22px 0 32px;display:grid;grid-template-columns:1fr 1fr;gap:10px 20px}
+.featured li{font-size:.88rem;color:var(--muted);display:flex;gap:10px;align-items:center}
+.featured li:before{content:"";width:16px;height:16px;flex:none;border-radius:50%;background:rgba(227,191,147,.15) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-4.8' fill='none' stroke='%23e3bf93' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") center/16px}
+
+.pack-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.pack{position:relative;border-radius:var(--r);overflow:hidden;background:var(--card);border:1px solid var(--line);transition:.4s;cursor:pointer;text-align:left;display:flex;flex-direction:column}
+.pack:hover{transform:translateY(-6px);border-color:rgba(255,79,139,.45);box-shadow:0 30px 60px -25px rgba(255,79,139,.35)}
+.pack-media{position:relative;aspect-ratio:3/4;overflow:hidden}
+.pack-media img{width:100%;height:100%;object-fit:cover;transition:transform 1s,filter .5s;filter:blur(4px) brightness(.92);transform:scale(1.06)}
+.pack:hover .pack-media img{filter:blur(2.5px)}
+.pack-ph{position:absolute;inset:0 0 30% 0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:16px;background:radial-gradient(circle at 50% 30%,#5d1234,#1b0e18 70%)}
+.pack-ph span{font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--gold2);line-height:1.1}
+.pack-ph small{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+.pack:hover .pack-media img{transform:scale(1.07)}
+.pack-media:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,7,12,.1) 40%,rgba(13,7,12,.92))}
+.pack-num{position:absolute;top:12px;left:12px;z-index:2;font-family:var(--serif);font-size:1rem;background:rgba(13,7,12,.6);backdrop-filter:blur(8px);border:1px solid var(--line2);border-radius:999px;padding:3px 12px}
+.pack-count{position:absolute;top:12px;right:12px;z-index:2;font-size:.64rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:rgba(255,255,255,.92);color:#1a0b16;border-radius:999px;padding:5px 10px}
+.pack-info{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:16px}
+.pack-info h4{margin:0;font-family:var(--serif);font-weight:500;font-size:1.35rem;line-height:1.1}
+.pack-foot{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.pack-foot b{font-weight:600;font-size:.95rem}
+.pack-foot span{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--rose);font-size:1rem;transition:.3s}
+.pack:hover .pack-foot span{transform:rotate(-45deg)}
+.compare{margin-top:30px;display:flex;justify-content:center}
+.compare p{font-size:.86rem;border:1px dashed var(--line2);border-radius:999px;padding:12px 24px;text-align:center}
+.compare b{color:var(--gold2)}
+
+/* main collections */
+.cols{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.col{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:3/4.1;border:1px solid var(--line);background:var(--card);cursor:pointer;text-align:left;transition:.45s;display:block;width:100%;padding:0}
+.col img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1),filter .5s}
+.col:hover{transform:translateY(-6px);border-color:rgba(255,79,139,.45);box-shadow:0 30px 70px -30px rgba(255,79,139,.45)}
+.col:hover img{transform:scale(1.07)}
+.col.soon img{filter:blur(12px) saturate(.85) brightness(.7);transform:scale(1.18)}
+.col.soon:hover img{transform:scale(1.22)}
+.col:not(.soon) .col-lock{top:auto;left:auto;bottom:20px;right:58px;transform:none;width:30px;height:30px}
+.col:not(.soon) .col-lock svg{width:13px;height:13px}
+.col-lock{position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);z-index:2;width:56px;height:56px;border-radius:50%;border:1px solid rgba(255,255,255,.4);display:grid;place-items:center;backdrop-filter:blur(6px);background:rgba(13,7,12,.25)}
+.col:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,7,12,0) 45%,rgba(13,7,12,.94))}
+.col-num{position:absolute;top:16px;left:18px;z-index:2;font-family:var(--serif);font-size:1.05rem;color:#fff;opacity:.9}
+.col-status{position:absolute;top:14px;right:14px;z-index:2;font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;border-radius:999px;padding:6px 11px;backdrop-filter:blur(8px)}
+.col-status.on{background:var(--rose);color:#fff;box-shadow:0 0 20px rgba(255,79,139,.6)}
+.col-status.off{background:rgba(13,7,12,.55);border:1px solid rgba(255,255,255,.3);color:#fff}
+.col-body{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:20px}
+.col-body small{display:block;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.col-body h3{font-size:1.9rem;line-height:1;margin:6px 0 8px;color:#fff}
+.col-body p{font-size:.8rem;color:#d9c6cc;display:flex;justify-content:space-between;align-items:center}
+.col-body p span{width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.35);display:grid;place-items:center;transition:.3s}
+.col:hover .col-body p span{background:var(--rose);border-color:var(--rose);transform:rotate(-45deg)}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:40px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;display:flex;align-items:center;gap:10px;padding:6px 16px 6px 6px;border-radius:999px;border:1px solid var(--line2);font-size:.82rem;color:var(--muted);transition:.25s}
+.tab img{width:30px;height:30px;border-radius:50%;object-fit:cover;object-position:top}
+.tab:hover{color:var(--text);border-color:var(--gold)}
+.tab.on{background:var(--text);color:#1a0b16;border-color:var(--text);font-weight:600}
+.tab i{font-style:normal;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;opacity:.6}
+.empty{display:grid;grid-template-columns:.8fr 1.2fr;gap:0;border-radius:28px;overflow:hidden;border:1px solid var(--line2);background:linear-gradient(135deg,#22101c,#140a12)}
+.empty-media{position:relative;min-height:420px}
+.empty-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(14px) brightness(.7);transform:scale(1.2)}
+.empty-media .col-lock{top:50%}
+.empty-body{padding:56px;display:flex;flex-direction:column;justify-content:center}
+.empty-body h3{font-size:clamp(2.4rem,4vw,3.4rem);line-height:1;margin:18px 0 14px}
+.ghosts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:28px 0 30px}
+.ghosts div{aspect-ratio:3/4;border-radius:12px;border:1px dashed var(--line2);display:grid;place-items:center;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);text-align:center;padding:6px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.step{border:1px solid var(--line);border-radius:var(--r);padding:36px 32px;background:linear-gradient(180deg,var(--card),transparent);position:relative;overflow:hidden}
+.step .n{font-family:var(--serif);font-size:5rem;line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(227,191,147,.35);position:absolute;right:22px;top:22px}
+.step .ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:rgba(255,79,139,.12);border:1px solid rgba(255,79,139,.3);margin-bottom:26px}
+.step h3{font-size:1.65rem;margin-bottom:10px}
+.step p{font-size:.94rem}
+
+/* upcoming */
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(230px,1fr);gap:18px;overflow-x:auto;padding-bottom:12px;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:var(--wine) transparent}
+.soon{scroll-snap-align:start;position:relative;aspect-ratio:3/4.3;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--card)}
+.soon img{width:100%;height:100%;object-fit:cover;filter:saturate(.8) brightness(.55);transform:scale(1.15)}
+.soon .grad{position:absolute;inset:0}
+.soon-body{position:absolute;inset:0;padding:22px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(180deg,rgba(13,7,12,.2),rgba(13,7,12,.85))}
+.soon-tag{align-self:flex-start;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:5px 11px;backdrop-filter:blur(6px)}
+.soon-lock{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.35);display:grid;place-items:center;align-self:center;backdrop-filter:blur(6px)}
+.soon h4{margin:0;font-family:var(--serif);font-size:1.7rem;font-weight:500;line-height:1}
+.soon p{font-size:.82rem;margin-top:6px;color:#d9c6cc}
+.soon small{display:block;margin-top:10px;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+
+/* muse */
+.muse{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.muse-media{position:relative}
+.muse-media .ph{aspect-ratio:4/5;border-radius:24px}
+.muse-media .small{position:absolute;right:-40px;bottom:-40px;width:44%;aspect-ratio:3/4;border:6px solid var(--bg);border-radius:20px}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin:34px 0}
+.facts div{background:var(--bg);padding:20px 22px}
+.facts small{display:block;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+.facts b{font-family:var(--serif);font-weight:500;font-size:1.35rem}
+.ai-note{display:flex;gap:14px;align-items:flex-start;padding:18px 20px;border-radius:14px;background:rgba(227,191,147,.07);border:1px solid rgba(227,191,147,.22);font-size:.86rem;color:var(--gold2)}
+
+/* faq */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px}
+details{border-bottom:1px solid var(--line);padding:6px 0}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;align-items:center;padding:20px 0;font-family:var(--serif);font-size:1.45rem}
+summary::-webkit-details-marker{display:none}
+summary i{width:34px;height:34px;flex:none;border-radius:50%;border:1px solid var(--line2);display:grid;place-items:center;font-style:normal;transition:.3s;color:var(--gold)}
+details[open] summary i{transform:rotate(45deg);background:var(--wine);border-color:var(--wine);color:#fff}
+details p{padding:0 50px 22px 0;font-size:.95rem}
+
+/* cta */
+.cta{position:relative;border-radius:32px;overflow:hidden;padding:90px 60px;text-align:center;border:1px solid var(--line2);background:#1a0a15}
+.cta img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.28;filter:blur(2px)}
+.cta:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at center,rgba(142,24,64,.55),rgba(13,7,12,.92) 70%);z-index:1}
+.cta>*{position:relative;z-index:2}
+.cta h2{margin:18px auto 18px;max-width:760px}
+.cta p{max-width:520px;margin:0 auto 34px}
+
+footer{border-top:1px solid var(--line);padding:70px 0 40px;margin-top:120px}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+.foot h5{margin:0 0 16px;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.foot a,.foot li{display:block;color:var(--muted);font-size:.9rem;margin-bottom:10px}
+.foot ul{list-style:none;padding:0;margin:0}
+.foot a:hover{color:var(--text)}
+.legal{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:56px;padding-top:26px;border-top:1px solid var(--line);font-size:.78rem;color:var(--dim)}
+.plus18{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;border:1px solid var(--rose);color:var(--rose2);font-weight:700;font-size:.72rem;margin-right:10px;vertical-align:middle}
+
+/* modal / drawer */
+.overlay{position:fixed;inset:0;z-index:60;background:rgba(6,2,6,.78);backdrop-filter:blur(8px);opacity:0;pointer-events:none;transition:.35s}
+.overlay.show{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;z-index:61;width:min(560px,100%);background:#140a12;border-left:1px solid var(--line2);transform:translateX(100%);transition:transform .5s cubic-bezier(.2,.8,.2,1);overflow-y:auto;display:flex;flex-direction:column}
+.drawer.show{transform:none}
+.drawer-media{position:relative;aspect-ratio:4/3.4;overflow:hidden;flex:none}
+.drawer-media img{width:100%;height:100%;object-fit:cover;object-position:center 25%}
+.drawer-media:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,#140a12)}
+.x{position:absolute;top:16px;right:16px;z-index:3;width:44px;height:44px;border-radius:50%;background:rgba(13,7,12,.6);backdrop-filter:blur(8px);border:1px solid var(--line2);font-size:1.4rem;line-height:1;display:grid;place-items:center}
+.drawer-body{padding:6px 36px 36px;position:relative}
+.drawer-body h3{font-size:2.6rem;line-height:1;margin:12px 0 10px}
+.thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:24px 0}
+.thumbs div{aspect-ratio:3/4;border-radius:10px;overflow:hidden;position:relative;background:var(--card)}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+.thumbs .locked img{filter:blur(10px) brightness(.6);transform:scale(1.2)}
+.thumbs .locked:after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.5'%3E%3Crect x='5' y='11' width='14' height='9' rx='2'/%3E%3Cpath d='M8 11V8a4 4 0 0 1 8 0v3'/%3E%3C/svg%3E") center/22px no-repeat}
+.thumbs .more{display:grid;place-items:center;font-family:var(--serif);font-size:1.4rem;color:var(--gold2);background:linear-gradient(135deg,#2a0f20,#1b0e18)}
+.spec{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 26px}
+.spec div{border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.spec small{display:block;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+.spec b{font-weight:600;font-size:.92rem}
+.lic{display:flex;gap:8px;margin-bottom:22px;background:var(--card);padding:5px;border-radius:999px;border:1px solid var(--line)}
+.lic button{flex:1;padding:10px;border-radius:999px;font-size:.84rem;color:var(--muted);transition:.25s}
+.lic button.on{background:var(--text);color:#1a0b16;font-weight:600}
+.buybar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:22px;border-top:1px solid var(--line)}
+.buybar .price{font-size:2.6rem}
+.note{font-size:.78rem;color:var(--dim);margin-top:14px}
+.upsell{margin-top:22px;padding:16px 18px;border-radius:14px;border:1px solid rgba(255,79,139,.35);background:rgba(255,79,139,.07);font-size:.86rem;display:flex;justify-content:space-between;gap:14px;align-items:center}
+.upsell button{color:var(--rose2);font-weight:600;white-space:nowrap}
+
+/* lightbox */
+.lightbox{position:fixed;inset:0;z-index:70;display:none;align-items:center;justify-content:center;background:rgba(6,2,6,.95);padding:30px}
+.lightbox.show{display:flex}
+.lightbox img{max-height:88vh;max-width:min(680px,100%);border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1px solid var(--line2);font-size:1.4rem;background:rgba(13,7,12,.6)}
+.lb-prev{left:24px}.lb-next{right:24px}
+.lb-count{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-size:.76rem;letter-spacing:.2em;color:var(--muted)}
+
+/* age gate */
+.gate{position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 50% 30%,#2a0c1f,#0d070c 70%)}
+.gate.hide{display:none}
+.gate-box{width:min(460px,100%);text-align:center}
+.gate-box .logo{justify-content:center;margin-bottom:34px}
+.gate-box h2{font-size:2.6rem;margin-bottom:14px}
+.gate-box p{font-size:.92rem;margin-bottom:30px}
+.gate-actions{display:grid;gap:12px}
+.gate small{display:block;margin-top:24px;font-size:.74rem;color:var(--dim)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(34px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+/* mobile menu */
+.mobile-menu{position:fixed;inset:0;z-index:55;background:rgba(13,7,12,.97);display:none;flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.mobile-menu.show{display:flex}
+.mobile-menu a{font-family:var(--serif);font-size:2.2rem}
+
+@media (max-width:1100px){
+  .pack-grid{grid-template-columns:repeat(3,1fr)}
+  .cols{grid-template-columns:repeat(2,1fr)}
+  .empty{grid-template-columns:1fr}.empty-media{min-height:340px}
+  .featured{grid-template-columns:1fr}
+  .featured-media{min-height:360px}
+}
+@media (max-width:900px){
+  .menu,.nav .btn{display:none}.burger{display:flex}
+  .hero-grid,.muse,.faq-grid,.editorial-copy{grid-template-columns:1fr;gap:50px}
+  .hero-visual{justify-self:center}
+  .hero-tag{left:-10px}.seal{right:-6px}
+  .editorial-grid{grid-template-columns:repeat(6,1fr);grid-auto-rows:90px}
+  .e1{grid-column:1/4;grid-row:span 5}.e2{grid-column:4/7;grid-row:span 3}.e3{grid-column:4/7;grid-row:span 4}.e4{grid-column:1/4;grid-row:span 3}.e5{grid-column:1/7;grid-row:span 2}
+  .steps{grid-template-columns:1fr}
+  .muse-media .small{right:-10px;bottom:-30px}
+  .foot{grid-template-columns:1fr 1fr}
+  .sec{padding:90px 0}
+}
+@media (max-width:600px){
+  :root{--wrap:calc(100% - 32px)}
+  .logo{font-size:1.3rem;letter-spacing:.2em}
+  .pack-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .pack-info h4{font-size:1.1rem}
+  .cols{gap:12px}.col-body{padding:14px}.col-body h3{font-size:1.35rem}.col-body p span{display:none}.col-body small{font-size:.56rem;letter-spacing:.12em}
+  .empty-body{padding:34px 24px}.ghosts{grid-template-columns:repeat(2,1fr)}
+  .featured-body{padding:34px 26px}
+  .featured ul{grid-template-columns:1fr}
+  .featured-media{min-height:300px}
+  .stats{gap:26px}
+  .cta{padding:70px 24px}
+  .foot{grid-template-columns:1fr}
+  .drawer-body{padding:6px 22px 28px}
+  .hero-tag{display:none}
+  .lb-nav{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body class="lock">
+
+<!-- Verificação de idade -->
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
+  <div class="gate-box">
+    <div class="logo">JANNE <small>PHOTOS</small></div>
+    <span class="plus18" style="width:58px;height:58px;font-size:1rem;margin:0 0 22px">18+</span>
+    <h2 id="gateTitle">Conteúdo para maiores de 18 anos</h2>
+    <p>Este site reúne ensaios editoriais de lingerie das coleções Silk Morning, Velvet Noir, Blush, Midnight Blue, Pure White, Paris After Dark, Rouge e Noir Intense. Ao entrar, você confirma ter 18 anos ou mais.</p>
+    <div class="gate-actions">
+      <button class="btn btn-primary" id="gateYes">Tenho 18 anos ou mais — Entrar</button>
+      <a class="btn btn-ghost" href="https://www.google.com">Sair</a>
+    </div>
+  </div>
+</div>
+
+<div class="notice">✦ 8 coleções · Lançamento: <b>Silk Morning</b> com 10 subcoleções · Pack completo com todas as fotos ✦</div>
+
+<header id="top">
+  <div class="wrap nav">
+    <a class="logo" href="#inicio">JANNE <small>PHOTOS</small></a>
+    <nav class="menu">
+      <a href="#colecoes">Coleções</a>
+      <a href="#colecao">Silk Morning</a>
+      <a href="#packs">Packs</a>
+      <a href="#musa">A musa</a>
+      <a href="#faq">Dúvidas</a>
+    </nav>
+    <a class="btn btn-primary" href="#packs">Ver packs</a>
+    <button class="burger" id="burger" aria-label="Abrir menu"><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#colecoes">Coleções</a><a href="#colecao">Silk Morning</a><a href="#packs">Packs</a><a href="#musa">A musa</a><a href="#faq">Dúvidas</a>
+  <button class="btn btn-ghost" id="closeMenu">Fechar</button>
+</div>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow rv">Coleção 01 · Silk Morning</div>
+      <h1 class="rv d1"><span class="line">Oito universos,</span><span class="line"><em>uma musa,</em></span><span class="line">em detalhes.</span></h1>
+      <p class="hero-lead rv d2">Oito coleções de lingerie e cetim, cada uma com suas próprias subcoleções. Uma musa virtual, luz natural e a estética de uma revista de luxo.</p>
+      <div class="hero-actions rv d3">
+        <a class="btn btn-primary" href="#packs">Escolher meu pack <span class="arrow">→</span></a>
+        <a class="btn btn-ghost" href="#colecoes">Ver as coleções</a>
+      </div>
+      <div class="stats rv d4">
+        <div><b>8</b><span>coleções</span></div>
+        <div><b>10</b><span>subcoleções na Silk</span></div>
+        <div><b>80</b><span>fotos no lançamento</span></div>
+      </div>
+    </div>
+    <div class="hero-visual rv d2">
+      <div class="arch"><img src="assets/janne-07.webp" alt="Modelo sentada no sofá com conjunto de cetim vinho" fetchpriority="high"></div>
+      <svg class="seal" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="c" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text><textPath href="#c">Nova coleção · Silk Morning · 2026 ·</textPath></text></svg>
+      <div class="hero-tag"><img src="assets/janne-06-sm.webp" alt=""><div><small>Disponível agora</small><strong>Silk Morning</strong></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="marquee-track" id="marq"></div></div>
+
+<!-- COLEÇÕES PRINCIPAIS -->
+<section class="sec" id="colecoes">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow rv">As coleções</div><h2 class="rv d1">As <em>coleções</em></h2></div>
+      <p class="rv d2">Cada coleção tem um figurino próprio e se divide em subcoleções. Escolha uma para ver os packs.</p>
+    </div>
+    <div class="cols" id="colGrid"></div>
+  </div>
+</section>
+
+<!-- EDITORIAL -->
+<section class="sec" id="colecao">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow rv">Lançamento · Coleção 01</div><h2 class="rv d1">Silk <em>Morning</em></h2></div>
+      <p class="rv d2">Uma manhã sem pressa num quarto banhado de luz. Cetim vinho, renda branca e a timidez de quem ainda está descobrindo a câmera.</p>
+    </div>
+    <div class="editorial-grid" id="editorial">
+      <div class="ph e1 rv" data-lb="0"><img src="assets/janne-01.webp" loading="lazy" alt="Modelo deitada na cama"><span class="cap">Deitada na cama</span></div>
+      <div class="ph e2 rv d1" data-lb="1"><img src="assets/janne-05-sm.webp" loading="lazy" alt="Modelo se espreguiçando"><span class="cap">Acabou de acordar</span></div>
+      <div class="ph e3 rv d2" data-lb="2"><img src="assets/janne-03-sm.webp" loading="lazy" alt="Modelo de costas, na janela"><span class="cap">Na janela</span></div>
+      <div class="ph e4 rv d3" data-lb="3"><img src="assets/janne-04-sm.webp" loading="lazy" alt="Modelo em pé no quarto"><span class="cap">Dançando no quarto</span></div>
+      <div class="ph e5 rv d4"><q>“Luz de manhã, cetim na pele e nenhuma pressa.”</q><small>Silk Morning · Nota da direção de arte</small></div>
+    </div>
+    <div class="editorial-copy">
+      <div class="rv"><h3>Dez subcoleções, oitenta fotos, <em class="serif" style="color:var(--gold2)">uma só manhã.</em></h3></div>
+      <div class="rv d1">
+        <p>Cada subcoleção reúne 8 fotografias de um mesmo momento: na cama, no sofá, diante do espelho, na janela. Monte sua coleção aos poucos ou leve tudo de uma vez no pack completo.</p>
+        <div class="chips"><span class="chip">Cetim vinho & renda</span><span class="chip">Luz natural</span><span class="chip">Fotorrealismo</span><span class="chip">Alta resolução</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKS / SUBCOLEÇÕES -->
+<section class="sec" id="packs">
+  <div class="wrap">
+    <div class="tabs" id="tabs" role="tablist" aria-label="Coleções"></div>
+    <div class="sec-head" style="margin-bottom:40px">
+      <div><div class="eyebrow" id="pkEyebrow">Subcoleções</div><h2 id="pkTitle" style="margin-top:18px"></h2></div>
+      <p id="pkDesc"></p>
+    </div>
+    <div id="pkBody"></div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="sec" style="padding-top:40px">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="eyebrow rv">Simples e discreto</div><h2 class="rv d1">Como <em>funciona</em></h2></div></div>
+    <div class="steps">
+      <div class="step rv"><span class="n">01</span><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff7aa6" stroke-width="1.6"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg></div><h3>Escolha o pack</h3><p>Navegue pelos temas, veja a prévia e escolha um pack de 8 fotos ou o pack completo com as 80.</p></div>
+      <div class="step rv d1"><span class="n">02</span><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff7aa6" stroke-width="1.6"><rect x="3" y="10" width="18" height="11" rx="2"/><path d="M7 10V7a5 5 0 0 1 10 0v3"/></svg></div><h3>Pague com segurança</h3><p>O pagamento é feito no checkout seguro da plataforma parceira, com Pix ou cartão. Discreto na fatura.</p></div>
+      <div class="step rv d2"><span class="n">03</span><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff7aa6" stroke-width="1.6"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg></div><h3>Receba na hora</h3><p>Assim que o pagamento é aprovado, o link de download chega no seu e-mail. Os arquivos são seus.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MUSA -->
+<section class="sec" id="musa">
+  <div class="wrap muse">
+    <div class="muse-media rv">
+      <div class="ph" data-lb="4"><img src="assets/janne-06.webp" loading="lazy" alt="Retrato da modelo"></div>
+      <div class="ph small" data-lb="5"><img src="assets/janne-02-sm.webp" loading="lazy" alt="Modelo sentada"></div>
+    </div>
+    <div>
+      <div class="eyebrow rv">Conheça a musa</div>
+      <h2 class="rv d1" style="margin:18px 0 24px">Muito prazer, <em>Aino.</em></h2>
+      <p class="rv d2">Aino Lehtonen nasceu em Tampere, na Finlândia, e veio para o Brasil aos 3 anos. Cresceu entre o sol brasileiro e o jeito reservado finlandês, e é essa mistura que aparece em cada ensaio: um sorriso tímido, um olhar que vai se soltando aos poucos. Cada coleção é uma história, com cenário, figurino e luz próprios.</p>
+      <div class="facts rv d3">
+        <div><small>Altura</small><b>1,75 m</b></div>
+        <div><small>Cabelo</small><b>Castanho, ondulado</b></div>
+        <div><small>Estilo</small><b>Editorial · Glamour</b></div>
+        <div><small>Origem</small><b>Tampere · Brasil</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq">
+  <div class="wrap faq-grid">
+    <div><div class="eyebrow rv">Dúvidas</div><h2 class="rv d1" style="margin-top:18px">Perguntas <em>frequentes</em></h2><p class="rv d2" style="margin-top:20px">Não achou o que procurava? Fale com a gente pelo contato no rodapé.</p></div>
+    <div class="rv d1">
+      <details open><summary>Como recebo as fotos?<i>+</i></summary><p>Logo após a aprovação do pagamento, você recebe por e-mail o link de download do pack, enviado pela plataforma de pagamento.</p></details>
+      <details><summary>As fotos têm marca-d'água?<i>+</i></summary><p>Não. Só as prévias do site têm marca-d'água e resolução reduzida. Os arquivos comprados são entregues limpos, em alta resolução.</p></details>
+      <details><summary>O que é uma subcoleção?<i>+</i></summary><p>Cada coleção principal (figurino) é dividida em subcoleções de 8 fotos, cada uma com um cenário ou momento diferente. As fotos não se repetem entre subcoleções, e o pack completo reúne todas.</p></details>
+      <details><summary>Quais formas de pagamento?<i>+</i></summary><p>Pix, boleto e cartão de crédito, pelo checkout seguro da Kiwify. A cobrança aparece de forma discreta na fatura.</p></details><details><summary>E se eu não gostar?<i>+</i></summary><p>Você tem garantia: é só pedir o reembolso pela Kiwify dentro do prazo de garantia da compra.</p></details>
+      <details><summary>Posso compartilhar ou revender?<i>+</i></summary><p>As fotos são para uso pessoal e privado. Redistribuir ou revender os arquivos não é permitido.</p></details>
+      <details><summary>Quem é a Aino?<i>+</i></summary><p>Aino Lehtonen é uma personagem adulta fictícia, criada digitalmente para os ensaios da JANNE PHOTOS. Conheça a história dela na seção “Conheça a musa”.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="wrap">
+  <div class="cta rv">
+    <img src="assets/janne-05-sm.webp" alt="" loading="lazy">
+    <div class="eyebrow">Silk Morning</div>
+    <h2>Leve a coleção <em>inteira</em> para casa.</h2>
+    <p>Todas as subcoleções da Silk Morning em um único pack.</p>
+    <button class="btn btn-primary" data-open="completo">Quero o pack completo <span class="arrow">→</span></button>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="logo" style="margin-bottom:18px">JANNE <small>PHOTOS</small></div>
+        <p style="max-width:340px;font-size:.9rem">Ensaios editoriais digitais de lingerie, moda e glamour com Aino Lehtonen.</p>
+      </div>
+      <div><h5>Navegar</h5><ul><li><a href="#colecao">Silk Morning</a></li><li><a href="#packs">Packs</a></li><li><a href="#colecoes">Todas as coleções</a></li><li><a href="#faq">Dúvidas</a></li></ul></div>
+      <div><h5>Contato</h5><ul id="contactList"></ul></div>
+    </div>
+    <div class="legal">
+      <span><span class="plus18">18+</span>Conteúdo para maiores de 18 anos · <span style="opacity:.6">Personagem fictícia; imagens geradas por IA</span></span>
+      <span>© <span id="year"></span> JANNE PHOTOS</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Drawer do pack -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-modal="true" role="dialog" aria-labelledby="dTitle">
+  <div class="drawer-media"><img id="dImg" alt=""><button class="x" id="dClose" aria-label="Fechar">×</button></div>
+  <div class="drawer-body">
+    <span class="eyebrow" id="dEyebrow">Silk Morning</span>
+    <h3 id="dTitle"></h3>
+    <p id="dDesc"></p>
+    <div class="thumbs" id="dThumbs"></div>
+    <div class="spec">
+      <div><small>Fotos</small><b id="dCount"></b></div>
+      <div><small>Formato</small><b>JPG · alta resolução</b></div>
+      <div><small>Entrega</small><b>Imediata por e-mail</b></div>
+      <div><small>Marca-d'água</small><b>Não</b></div>
+    </div>
+    <div class="lic" role="radiogroup" aria-label="Licença" style="display:none">
+      <button class="on" data-lic="pessoal">Licença pessoal</button>
+      <button data-lic="comercial">Licença comercial</button>
+    </div>
+    <div class="buybar">
+      <div><small style="display:block;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)">Total</small><span class="price" id="dPrice"></span></div>
+      <a class="btn btn-primary" id="dBuy" href="#" target="_blank" rel="noopener">Comprar agora <span class="arrow">→</span></a>
+    </div>
+    <p class="note" id="dNote"></p>
+    <div class="upsell" id="dUpsell"><span>Leve a <b>coleção inteira</b> por <b id="dUpPrice"></b>.</span><button data-open="completo">Ver completo →</button></div>
+  </div>
+</aside>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lb" role="dialog" aria-modal="true" aria-label="Prévia ampliada">
+  <button class="x" id="lbClose" aria-label="Fechar">×</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Anterior">‹</button>
+  <img id="lbImg" alt="">
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Próxima">›</button>
+  <span class="lb-count" id="lbCount"></span>
+</div>
+
+<script>
+'use strict';
+/* =========================================================
+   CONFIGURAÇÃO — edite aqui preços, links e contatos
+   ========================================================= */
+const CONFIG = {
+  precoPack: 29.90,          // preço de cada pack de 8 fotos
+  precoCompleto: 59.90,      // preço do pack completo (80 fotos)
+  multiplicadorComercial: 2, // licença comercial = preço x 2
+  // Links de checkout (Kiwify / Kirvano). Deixe vazio enquanto não tiver.
+  // Formato da chave: 'pack-01:pessoal', 'pack-01:comercial', 'completo:pessoal'...
+  // Vendas: mude para true depois de subir as fotos na área de membros de cada produto na Kiwify
+  vendasAbertas: false,
+  // Links de checkout da Kiwify (já criados)
+  checkout: {
+    'pack-01':  'https://pay.kiwify.com.br/xpzDgue',
+    'pack-02':  'https://pay.kiwify.com.br/deFfHKL',
+    'pack-03':  'https://pay.kiwify.com.br/pYPy2Mx',
+    'pack-04':  'https://pay.kiwify.com.br/piGGCKY',
+    'pack-05':  'https://pay.kiwify.com.br/UMiN0iu',
+    'pack-06':  'https://pay.kiwify.com.br/b1NXHD6',
+    'pack-07':  'https://pay.kiwify.com.br/X4TiOLS',
+    'pack-08':  'https://pay.kiwify.com.br/F4BdUBU',
+    'pack-09':  'https://pay.kiwify.com.br/b8pjyPn',
+    'pack-10':  'https://pay.kiwify.com.br/uOhBnoa',
+    'completo': 'https://pay.kiwify.com.br/LvRcRzS'
+  },
+  contato: {
+    email: '',      // ex: 'contato@jannephotos.com'
+    instagram: '',  // ex: 'https://instagram.com/jannephotos'
+    telegram: ''    // ex: 'https://t.me/jannephotos'
+  }
+};
+
+const IMG = n => `assets/janne-0${n}-sm.webp`;
+const IMG_L = n => `assets/janne-0${n}.webp`;
+
+/* =========================================================
+   COLEÇÕES PRINCIPAIS
+   - capa: imagem da coleção (na ordem da montagem)
+   - subs: subcoleções (packs de 8). Coleção sem "subs" aparece como "Em breve".
+   - Para lançar uma coleção nova, preencha "subs" e "completo" igual à Silk Morning.
+   ========================================================= */
+const COLECOES = [
+  {id:'silk-morning', nome:'Silk Morning', peca:'Cetim vinho & renda branca', capa:'assets/capa-1.webp',
+   desc:'Uma manhã sem pressa num quarto banhado de luz, com a timidez de quem ainda está descobrindo a câmera.',
+   completo:{fotos:80, capa:IMG_L(7)},
+   subs:[
+    {id:'pack-01', nome:'Primeiras poses',     desc:'O primeiro contato com a câmera: sorrisos tímidos e poses espontâneas.', capa:6},
+    {id:'pack-02', nome:'Novas expressões',    desc:'Olhares, risadas e caras e bocas de quem está pegando o jeito.', capa:5},
+    {id:'pack-03', nome:'Deitada na cama',     desc:'Lençóis claros, luz da manhã e poses relaxadas na cama.', capa:1},
+    {id:'pack-04', nome:'No sofá do quarto',   desc:'Momentos de descanso no sofá, entre almofadas e cetim.', capa:7},
+    {id:'pack-05', nome:'Deitada no chão',     desc:'Ângulos baixos sobre o tapete, com a luz entrando pela janela.', capa:null},
+    {id:'pack-06', nome:'Corpo inteiro',       desc:'Fotos em pé, da cabeça aos pés, valorizando o conjunto.', capa:4},
+    {id:'pack-07', nome:'Na janela',           desc:'Contraluz suave, cortinas leves e o dia começando lá fora.', capa:3},
+    {id:'pack-08', nome:'Diante do espelho',   desc:'Reflexos, detalhes do figurino e um olhar mais confiante.', capa:null},
+    {id:'pack-09', nome:'Dançando no quarto',  desc:'Movimento, cabelo ao vento e muita leveza.', capa:null},
+    {id:'pack-10', nome:'Tímida',        desc:'Sorrisos contidos e poses encolhidas: o charme da timidez.', capa:2}
+   ].map(s=>({...s, capaSm:s.capa?IMG(s.capa):null, capaLg:s.capa?IMG_L(s.capa):null}))},
+  {id:'velvet-noir',      nome:'Velvet Noir',      peca:'Lingerie preta de renda',      capa:'assets/capa-2.webp', desc:'Renda preta, pele dourada e um olhar mais ousado.'},
+  {id:'blush',            nome:'Blush',            peca:'Camisola de cetim rosa',       capa:'assets/capa-3.webp', desc:'Tons de rosa, delicadeza e uma manhã preguiçosa.'},
+  {id:'midnight-blue',    nome:'Midnight Blue',    peca:'Pijama de cetim azul-marinho', capa:'assets/capa-4.webp', desc:'Pijama de seda, café na cama e risadas espontâneas.'},
+  {id:'pure-white',       nome:'Pure White',       peca:'Body branco de renda',         capa:'assets/capa-5.webp', desc:'Branco, renda e luz suave: elegância em estado puro.'},
+  {id:'paris-after-dark', nome:'Paris After Dark', peca:'Babydoll preto transparente',  capa:'assets/capa-6.webp', desc:'Boudoir parisiense, seda e transparências.'},
+  {id:'rouge',            nome:'Rouge',            peca:'Robe de cetim vinho',          capa:'assets/capa-7.webp', desc:'Robe vermelho, renda e o clima de um fim de noite.'},
+  {id:'noir-intense',     nome:'Noir Intense',     peca:'Body preto rendado',           capa:'assets/capa-8.webp', desc:'Body rendado preto e a versão mais intensa da nossa musa.'}
+];
+const ativa = c => Array.isArray(c.subs) && c.subs.length>0;
+const LOCK = '<span class="col-lock"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>';
+
+const money = v => v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+const $ = s => document.querySelector(s);
+
+/* ---------- Age gate ---------- */
+const gate = $('#gate');
+function enterSite(){gate.classList.add('hide');document.body.classList.remove('lock');try{localStorage.setItem('janne18','1')}catch(e){}}
+try{ if(localStorage.getItem('janne18')==='1') enterSite(); }catch(e){}
+$('#gateYes').addEventListener('click', enterSite);
+
+/* ---------- Marquee ---------- */
+const words=COLECOES.map(c=>c.nome);
+$('#marq').innerHTML=[...words,...words,...words].map(w=>`<span>${w}</span>`).join('');
+
+/* ---------- Grade das 8 coleções ---------- */
+$('#colGrid').innerHTML = COLECOES.map((c,i)=>`
+  <button class="col ${ativa(c)?'':'soon'} rv d${i%4}" data-col="${c.id}" aria-label="Ver coleção ${c.nome}">
+    <img src="${c.capa}" alt="${ativa(c)?'Capa da coleção '+c.nome:''}" loading="lazy">
+    <span class="col-num">${String(i+1).padStart(2,'0')}</span>
+    <span class="col-status ${ativa(c)?'on':'off'}">${ativa(c)?'Disponível':'🔥 Em breve'}</span>
+    ${LOCK}
+    <div class="col-body"><small>${c.peca}</small><h3>${c.nome}</h3><p>${ativa(c)?c.subs.length+' subcoleções · '+c.completo.fotos+' fotos':'🌶️ Em produção'}<span>↗</span></p></div>
+  </button>`).join('');
+
+/* ---------- Abas + subcoleções ---------- */
+let colAtual = COLECOES[0];
+$('#tabs').innerHTML = COLECOES.map(c=>`<button class="tab" role="tab" data-tab="${c.id}"><img src="${c.capa}" alt="" style="${ativa(c)?'':'filter:blur(3px)'}">${c.nome}${ativa(c)?'':' <i>🌶️ em breve</i>'}</button>`).join('');
+
+function renderCol(c){
+  colAtual=c;
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t.dataset.tab===c.id));
+  const n=COLECOES.indexOf(c)+1;
+  $('#pkEyebrow').textContent = `Coleção ${String(n).padStart(2,'0')} · ${c.peca}`;
+  if(ativa(c)){
+    const total=CONFIG.precoPack*c.subs.length, fotos=c.completo.fotos;
+    $('#pkTitle').innerHTML = `Subcoleções <em>${c.nome}</em>`;
+    $('#pkDesc').textContent = `${c.subs.length} subcoleções, cada uma com um cenário diferente e sem repetição de fotos. O pack completo reúne todas as fotos da coleção.`;
+    $('#pkBody').innerHTML = `
+      <article class="featured">
+        <div class="featured-media">
+          ${c.subs.filter(s=>s.capaSm).slice(0,3).map(s=>`<img src="${s.capaSm}" alt="" loading="lazy">`).join('')}
+        </div>
+        <div class="featured-body">
+          <span class="badge"><i></i>Coleção inteira</span>
+          <h3>Pack Completo <em style="color:var(--gold2)">${c.nome}</em></h3>
+          <p>Todas as ${fotos} fotografias das ${c.subs.length} subcoleções, em um único download.</p>
+          <div class="price-row"><span class="price">${money(CONFIG.precoCompleto)}</span></div>
+          <ul><li>${fotos} fotos em alta resolução</li><li>${c.subs.length} subcoleções completas</li><li>Entrega imediata por e-mail</li><li>Sem marca-d'água</li></ul>
+          <div><button class="btn btn-primary" data-open="${c.id}|completo">Ver pack completo <span class="arrow">→</span></button></div>
+        </div>
+      </article>
+      <div class="pack-grid">${c.subs.map((p,i)=>`
+        <button class="pack" data-open="${c.id}|${p.id}" aria-label="Ver ${p.nome}">
+          <div class="pack-media">${p.capaSm?`<img src="${p.capaSm}" loading="lazy" alt="Capa da subcoleção ${p.nome}">`:`<div class="pack-ph"><span>✦</span><small>Capa em breve</small></div>`}</div>
+          <span class="pack-num">${String(i+1).padStart(2,'0')}</span><span class="pack-count">Pack de fotos</span>
+          <div class="pack-info"><h4>${p.nome}</h4><div class="pack-foot"><b>${money(CONFIG.precoPack)}</b><span>↗</span></div></div>
+        </button>`).join('')}</div>`;
+  } else {
+    $('#pkTitle').innerHTML = `<em>${c.nome}</em>`;
+    $('#pkDesc').textContent = c.desc;
+    $('#pkBody').innerHTML = `
+      <div class="empty">
+        <div class="empty-media"><img src="${c.capa}" alt="">${LOCK}</div>
+        <div class="empty-body">
+          <span class="badge">🌶️ Em produção</span>
+          <h3>${c.nome} <em style="color:var(--gold2)">em breve</em> 🔥</h3>
+          <p>${c.desc} As subcoleções desta coleção estão sendo produzidas e serão lançadas em packs de fotos, com pack completo.</p>
+          <div class="ghosts">${['Subcoleção 01','Subcoleção 02','Subcoleção 03','Subcoleção 04'].map(t=>`<div>🔥<br>${t}<br>em breve</div>`).join('')}</div>
+          <div><button class="btn btn-ghost" data-tab="${COLECOES.find(ativa).id}">Ver a coleção disponível →</button></div>
+        </div>
+      </div>`;
+  }
+}
+function goCol(id,scroll=true){const c=COLECOES.find(x=>x.id===id);if(!c)return;renderCol(c);if(scroll)$('#packs').scrollIntoView({behavior:'smooth'});history.replaceState(null,'','#'+id)}
+document.addEventListener('click',e=>{const t=e.target.closest('[data-col],[data-tab]');if(t){e.preventDefault();goCol(t.dataset.col||t.dataset.tab, !!t.dataset.col || t.closest('#pkBody')!==null)}});
+renderCol(COLECOES[0]);
+
+/* ---------- Drawer (subcoleção ou pack completo) ---------- */
+let current=null, curCol=null, lic='pessoal';
+const drawer=$('#drawer'), overlay=$('#overlay');
+function openPack(key){
+  const [cid,pid]=key.includes('|')?key.split('|'):['silk-morning',key];
+  curCol=COLECOES.find(c=>c.id===cid); if(!curCol||!ativa(curCol)) return;
+  const isFull = pid==='completo';
+  current = isFull ? {id:'completo', nome:'Pack Completo', desc:`Todas as ${curCol.completo.fotos} fotografias da coleção ${curCol.nome}, das ${curCol.subs.length} subcoleções, em um único download.`, capaLg:curCol.completo.capa} : curCol.subs.find(p=>p.id===pid);
+  if(!current) return;
+  lic='pessoal';
+  document.querySelectorAll('.lic button').forEach(b=>b.classList.toggle('on',b.dataset.lic==='pessoal'));
+  const idx = isFull ? 0 : curCol.subs.indexOf(current);
+  const lg=current.capaLg||curCol.subs.find(s=>s.capaLg).capaLg; $('#dImg').src = lg; $('#dImg').alt = 'Capa: '+current.nome; $('#dImg').style.filter = current.capaLg?'':'blur(18px) brightness(.6)';
+  $('#dEyebrow').textContent = isFull ? `${curCol.nome} · Coleção inteira` : `${curCol.nome} · Subcoleção ${String(idx+1).padStart(2,'0')}`;
+  $('#dTitle').textContent = current.nome;
+  $('#dDesc').textContent = current.desc;
+  $('#dCount').textContent = isFull ? curCol.completo.fotos+' fotografias' : '8 fotografias';
+  const pool=[...new Set([current.capaSm,...curCol.subs.map(s=>s.capaSm)].filter(Boolean))];
+  $('#dThumbs').innerHTML = `<div><img src="${pool[0]}" alt=""></div><div class="locked"><img src="${pool[1]||pool[0]}" alt=""></div><div class="locked"><img src="${pool[2]||pool[0]}" alt=""></div><div class="more">+${isFull?curCol.completo.fotos-3:5}</div>`;
+  $('#dUpsell').style.display = isFull ? 'none' : 'flex';
+  $('#dUpsell button').dataset.open = curCol.id+'|completo';
+  $('#dUpPrice').textContent = money(CONFIG.precoCompleto);
+  updatePrice();
+  drawer.classList.add('show'); overlay.classList.add('show'); document.body.classList.add('lock');
+  history.replaceState(null,'','#'+curCol.id);
+}
+function updatePrice(){
+  const isFull=current.id==='completo';
+  const base = isFull ? CONFIG.precoCompleto : CONFIG.precoPack;
+  const total = base*(lic==='comercial'?CONFIG.multiplicadorComercial:1);
+  $('#dPrice').textContent = money(total);
+  const key = curCol.id==='silk-morning' ? current.id : `${curCol.id}:${current.id}`;
+  const url = CONFIG.vendasAbertas ? CONFIG.checkout[key] : null;
+  const buy=$('#dBuy');
+  if(url){ buy.href=url; buy.removeAttribute('aria-disabled'); buy.style.opacity=''; buy.style.pointerEvents=''; buy.innerHTML='Comprar agora <span class="arrow">→</span>'; $('#dNote').textContent='Você será levado ao checkout seguro da Kiwify. Pix ou cartão.'; }
+  else { buy.removeAttribute('href'); buy.setAttribute('aria-disabled','true'); buy.style.opacity='.5'; buy.style.pointerEvents='none'; buy.textContent='Vendas em breve'; $('#dNote').textContent='As vendas abrem em breve.'; }
+}
+function closeDrawer(){drawer.classList.remove('show');overlay.classList.remove('show');document.body.classList.remove('lock')}
+document.addEventListener('click',e=>{const o=e.target.closest('[data-open]');if(o){e.preventDefault();openPack(o.dataset.open)}});
+document.querySelectorAll('.lic button').forEach(b=>b.addEventListener('click',()=>{lic=b.dataset.lic;document.querySelectorAll('.lic button').forEach(x=>x.classList.toggle('on',x===b));updatePrice()}));
+$('#dClose').onclick=closeDrawer; overlay.onclick=closeDrawer;
+
+/* ---------- Lightbox ---------- */
+const LB=[1,5,3,4,6,2]; let lbi=0;
+const lb=$('#lb');
+function showLb(i){lbi=(i+LB.length)%LB.length;$('#lbImg').src=IMG_L(LB[lbi]);$('#lbCount').textContent=`${lbi+1} / ${LB.length} · PRÉVIA COM MARCA-D'ÁGUA`;lb.classList.add('show');document.body.classList.add('lock')}
+function closeLb(){lb.classList.remove('show');if(!drawer.classList.contains('show'))document.body.classList.remove('lock')}
+document.querySelectorAll('[data-lb]').forEach(el=>el.addEventListener('click',()=>showLb(+el.dataset.lb)));
+$('#lbPrev').onclick=()=>showLb(lbi-1); $('#lbNext').onclick=()=>showLb(lbi+1); $('#lbClose').onclick=closeLb;
+lb.addEventListener('click',e=>{if(e.target===lb)closeLb()});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){closeLb();if(drawer.classList.contains('show'))closeDrawer();$('#mobileMenu').classList.remove('show')}
+  if(lb.classList.contains('show')){if(e.key==='ArrowRight')showLb(lbi+1);if(e.key==='ArrowLeft')showLb(lbi-1)}
+});
+
+/* ---------- Proteção leve das prévias ---------- */
+document.addEventListener('contextmenu',e=>{if(e.target.tagName==='IMG')e.preventDefault()});
+document.addEventListener('dragstart',e=>{if(e.target.tagName==='IMG')e.preventDefault()});
+
+/* ---------- Header, menu, reveal ---------- */
+const header=$('#top');
+addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>30),{passive:true});
+$('#burger').onclick=()=>$('#mobileMenu').classList.add('show');
+$('#closeMenu').onclick=()=>$('#mobileMenu').classList.remove('show');
+document.querySelectorAll('#mobileMenu a').forEach(a=>a.addEventListener('click',()=>$('#mobileMenu').classList.remove('show')));
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* ---------- Contato ---------- */
+const c=CONFIG.contato, cl=$('#contactList'); let items='';
+if(c.email) items+=`<li>${c.email}</li>`;
+if(c.instagram) items+=`<li><a href="${c.instagram}" target="_blank" rel="noopener">Instagram</a></li>`;
+if(c.telegram) items+=`<li><a href="${c.telegram}" target="_blank" rel="noopener">Telegram</a></li>`;
+cl.innerHTML = items || '<li>Contato em breve</li>';
+$('#year').textContent=new Date().getFullYear();
+
+/* ---------- Link direto: #silk-morning, #velvet-noir... ---------- */
+const h0=location.hash.slice(1); if(COLECOES.some(c=>c.id===h0)) goCol(h0);
+</script>
+</body>
+</html>
