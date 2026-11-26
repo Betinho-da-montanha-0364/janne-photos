@@ -1,0 +1,35 @@
+# Privacy: local secrets and credentials
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.p12
+*.pfx
+*.key
+id_rsa
+id_ed25519
+credentials.json
+client_secret*.json
+service-account*.json
+google_client.json
+
+# Local databases, logs and runtime files
+*.sqlite
+*.sqlite3
+*.db
+*.log
+*.bak
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+
+# Local development environments
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+.idea/
+.vscode/
